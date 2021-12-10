@@ -10,5 +10,8 @@ class Operation
   field :posicion, type: String
   field :status, type: String
   field :comentario, type: String
+
+  has_many :points
   belongs_to :wallet
+
 end

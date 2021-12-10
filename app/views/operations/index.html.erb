@@ -20,8 +20,21 @@
 
   <tbody>
     <% @operations.each do |operation| %>
-      <tr>
-        <td><%= operation.activo %></td>
+      <tr class="data-activo">
+        <td>
+          <div class="nombre-activo"><%= operation.activo %></div>
+          <div><strong>Precio actual:</strong><span class="price"></span></div>
+          <div>
+            <a
+              href='#'
+              class="button is-primary"
+              data-activo="<%= operation.activo %>"
+              data-id="<%= operation.id %>"
+              data-controller="operation"
+              data-action="click->operation#update"
+            >Actualizar</a>
+          </div>
+        </td>
         <td><%= operation.broker %></td>
         <td><%= operation.fecha_entrada %></td>
         <td><%= operation.precio_de_compra %></td>
@@ -37,6 +50,8 @@
     <% end %>
   </tbody>
 </table>
+
+<%= javascript_pack_tag 'update_price_table' %>
 
 <br>
 
