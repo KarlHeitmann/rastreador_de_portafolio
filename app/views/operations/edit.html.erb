@@ -1,0 +1,6 @@
+<h1>Editing Operation</h1>
+
+<%= render partial: 'form', locals: {wallet: @wallet, operation: @operation} %>
+
+<%= link_to 'Show', [@wallet, @operation] %> |
+<%= link_to 'Back', wallet_operations_path(@wallet) %>

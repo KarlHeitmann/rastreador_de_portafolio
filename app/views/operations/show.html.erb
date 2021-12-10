@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Activo:</strong>
+  <%= @operation.activo %>
+</p>
+
+<p>
+  <strong>Broker:</strong>
+  <%= @operation.broker %>
+</p>
+
+<p>
+  <strong>Fecha entrada:</strong>
+  <%= @operation.fecha_entrada %>
+</p>
+
+<p>
+  <strong>Precio de compra:</strong>
+  <%= @operation.precio_de_compra %>
+</p>
+
+<p>
+  <strong>Unidades compradas:</strong>
+  <%= @operation.unidades_compradas %>
+</p>
+
+<p>
+  <strong>Stop loss:</strong>
+  <%= @operation.stop_loss %>
+</p>
+
+<p>
+  <strong>Posicion:</strong>
+  <%= @operation.posicion %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @operation.status %>
+</p>
+
+<p>
+  <strong>Comentario:</strong>
+  <%= @operation.comentario %>
+</p>
+
+<p>
+  <strong>Wallet:</strong>
+  <%= @operation.wallet_id %>
+</p>
+
+<%= link_to 'Edit', edit_wallet_operation_path(@wallet, @operation) %> |
+<%= link_to 'Back', wallet_operations_path(@wallet) %>

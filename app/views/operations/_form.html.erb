@@ -1,0 +1,62 @@
+<%= form_with(model: [wallet, operation]) do |form| %>
+  <% if operation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(operation.errors.count, "error") %> prohibited this operation from being saved:</h2>
+
+      <ul>
+        <% operation.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :activo %>
+    <%= form.text_field :activo %>
+  </div>
+
+  <div class="field">
+    <%= form.label :broker %>
+    <%= form.text_field :broker %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fecha_entrada %>
+    <%= form.datetime_select :fecha_entrada %>
+  </div>
+
+  <div class="field">
+    <%= form.label :precio_de_compra %>
+    <%= form.text_field :precio_de_compra %>
+  </div>
+
+  <div class="field">
+    <%= form.label :unidades_compradas %>
+    <%= form.text_field :unidades_compradas %>
+  </div>
+
+  <div class="field">
+    <%= form.label :stop_loss %>
+    <%= form.text_field :stop_loss %>
+  </div>
+
+  <div class="field">
+    <%= form.label :posicion %>
+    <%= form.text_field :posicion %>
+  </div>
+
+  <div class="field">
+    <%= form.label :status %>
+    <%= form.text_field :status %>
+  </div>
+
+  <div class="field">
+    <%= form.label :comentario %>
+    <%= form.text_field :comentario %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
