@@ -1,0 +1,9 @@
+/*
+Para que funcione, ejecutar el comando siguiente para instalar una versión anterior de tailwind, ya que a 
+la fecha rails no tiene PostCSS 8, que es lo que Tailwind necesita
+
+> yarn add -D tailwindcss@npm:@tailwindcss/postcss7-compat @tailwindcss/postcss7-compat postcss@^7 autoprefixer@^9
+*/
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

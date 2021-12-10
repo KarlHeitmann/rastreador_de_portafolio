@@ -6,6 +6,9 @@
 import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import "channels"
+import "../main.css"
 
 Rails.start()
 Turbolinks.start()
+
+import "controllers"
