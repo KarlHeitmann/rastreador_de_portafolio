@@ -4,12 +4,26 @@ class Wallet
 
   field :nombre, type: String
   field :capital_inicial, type: Float
-  field :capitalizado, type: Float, default: 0.0
-  field :valor_actual_activos, type: Float, default: 0.0
-  field :capital_disponible, type: Float, default: 0.0
-  field :porcentaje_en_operacion, type: Float, default: 0.0
-  field :flotante_total, type: Float, default: 0.0
-  field :flotante_total_sl, type: Float, default: 0.0
+
+  def capitalizado
+  end
+
+  def valorActualActivos
+  end
+
+  def capitalDisponible
+  end
+
+  def porcentajeEnOperacion
+  end
+
+  def flotanteTotal
+  end
+
+  def totalDineroEnRiesgo
+  end
+
+
 
   has_many :operations
 end
