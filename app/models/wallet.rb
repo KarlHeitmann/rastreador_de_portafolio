@@ -18,17 +18,21 @@ class Wallet
     # return 0.0
   end
 
+  # @return [Float]
   def capitalDisponible
+    operations.order(fecha_entrada: :asc).reduce(capitalizado) {|sum, o| sum - o.inversion }
   end
 
   def porcentajeEnOperacion
   end
 
+  # @return [Float]
   def flotanteTotal
     operations.order(fecha_entrada: :asc).reduce(0.0) {|sum, o| sum + (o.last_point.nil? ? 0.0 : o.last_point.flotante)}
   end
 
   def totalDineroEnRiesgo
+    operations.reduce(0.0) { |sum, o| sum + o.perdida_sl }
   end
 
 
