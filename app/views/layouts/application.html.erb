@@ -11,6 +11,8 @@
   </head>
 
   <body class="mt-5">
+    <%= render 'shared/breadcrumbs' %>
+    <%= render partial: 'shared/wallet', locals: {wallet: @wallet} unless @wallet.nil? %>
     <%= yield %>
   </body>
 </html>

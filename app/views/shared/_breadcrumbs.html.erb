@@ -1,0 +1,12 @@
+<nav class="breadcrumb py-5" aria-label="breadcrumbs">
+  <ul class="list-reset flex text-grey-dark items-center px-5">
+    <% @breadcrumbs.each do |breadcrumb| %>
+      <% if breadcrumb[:enable] %>
+        <li><%= link_to breadcrumb[:text], breadcrumb[:link], class: "text-blue font-bold" %></li>
+        <li><span class="mx-2">/</span></li>
+      <% else %>
+        <li><%= breadcrumb[:text] %></li>
+      <% end %>
+    <% end unless @breadcrumbs.nil?%>
+  </ul>
+</nav>

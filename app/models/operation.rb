@@ -12,6 +12,27 @@ class Operation
   field :comentario, type: String
 
   has_many :points
+  has_many :refills
+  has_many :take_profits
+
   belongs_to :wallet
+
+  # @return [Array]
+  def historial_transacciones
+    (take_profits + refills).reject {|a| a.created_at.nil? }.sort {|a,b| a.fecha <=> b.fecha }
+  end
+
+  # @return [Float]
+  def retiros
+    take_profits.reduce(0.0) {|sum, tp| sum + tp.unidades * tp.price}
+  end
+
+  # @return [Point]
+  def last_point
+    points.order(updated_at: :desc).first
+  end
+
+  def riesgo
+  end
 
 end
