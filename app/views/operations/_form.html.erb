@@ -12,13 +12,23 @@
   <% end %>
 
   <div class="field">
+    <%= form.label :posicion %>
+    <%= form.select :posicion, POSICIONES, {} %>
+  </div>
+
+  <div class="field">
+    <%= form.label :status %>
+    <%= form.select :status, STATUS, {} %>
+  </div>
+
+  <div class="field">
     <%= form.label :activo %>
     <%= form.text_field :activo %>
   </div>
 
   <div class="field">
     <%= form.label :broker %>
-    <%= form.text_field :broker %>
+    <%= form.select :broker, BROKERS, {} %>
   </div>
 
   <div class="field">
@@ -39,16 +49,6 @@
   <div class="field">
     <%= form.label :stop_loss %>
     <%= form.text_field :stop_loss %>
-  </div>
-
-  <div class="field">
-    <%= form.label :posicion %>
-    <%= form.text_field :posicion %>
-  </div>
-
-  <div class="field">
-    <%= form.label :status %>
-    <%= form.text_field :status %>
   </div>
 
   <div class="field">
