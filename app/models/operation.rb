@@ -57,12 +57,14 @@ class Operation
     return precio_ponderado * unidades_actuales
   end
 
-  def perdida_sl
+  # @return [Float]
+  def perdidaSl
     # (precio_de_compra * unidades_compradas) - (stop_loss * unidades_compradas)
     (precio_ponderado * unidades_actuales) - (stop_loss * unidades_actuales)
   end
 
   def riesgo
+    perdidaSl / wallet.capitalizado
   end
 
 end

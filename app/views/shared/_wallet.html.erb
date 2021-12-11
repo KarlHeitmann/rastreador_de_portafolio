@@ -60,6 +60,10 @@
       <strong>Total dinero en riesgo: </strong>
       <%= wallet.totalDineroEnRiesgo %>
     </p>
+    <p>
+      <strong>Riesgo global: </strong>
+      <%= number_to_percentage wallet.riesgoGlobal * 100 %>
+    </p>
 
   </div>
 </div>

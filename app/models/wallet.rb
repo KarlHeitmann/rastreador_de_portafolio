@@ -31,8 +31,14 @@ class Wallet
     operations.order(fecha_entrada: :asc).reduce(0.0) {|sum, o| sum + (o.last_point.nil? ? 0.0 : o.last_point.flotante)}
   end
 
+  # @return [Float]
+  def riesgoGlobal
+    operations.reduce(0.0) { |sum, o| sum + o.riesgo }
+  end
+
+  # @return [Float]
   def totalDineroEnRiesgo
-    operations.reduce(0.0) { |sum, o| sum + o.perdida_sl }
+    operations.reduce(0.0) { |sum, o| sum + o.perdidaSl }
   end
 
 
