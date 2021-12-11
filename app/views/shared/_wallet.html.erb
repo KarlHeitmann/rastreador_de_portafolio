@@ -1,4 +1,4 @@
-<div class="grid grid-cols-2 gap-4">
+<div class="grid grid-cols-3 gap-4">
   <div>
     <p>
       <strong>Capital inicial:</strong>
@@ -11,8 +11,8 @@
     </p>
 
     <p>
-      <strong>Valor Actual Activos</strong>
-      <%= wallet.valorActualActivos %>
+      <strong>Capital Disponible</strong>
+      <%= wallet.capitalDisponible %>
     </p>
 
     <%= form_with(url: add_funds_path(wallet.id), method: :get) do |f| %>
@@ -43,12 +43,27 @@
     <% end %>
 
   </div>
+  <div>
     <p>
-      <strong>Flotante</strong>
+      <strong>Flotante: </strong>
       <%= wallet.flotanteTotal %>
     </p>
-  <div>
+
+    <p>
+      <strong>Valor Actual Activos: </strong>
+      <%= wallet.valorActualActivos %>
+    </p>
+
   </div>
   <div>
+    <p>
+      <strong>Total dinero en riesgo: </strong>
+      <%= wallet.totalDineroEnRiesgo %>
+    </p>
+    <p>
+      <strong>Riesgo global: </strong>
+      <%= number_to_percentage wallet.riesgoGlobal * 100 %>
+    </p>
+
   </div>
 </div>

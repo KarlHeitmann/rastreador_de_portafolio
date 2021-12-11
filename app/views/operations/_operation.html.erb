@@ -1,0 +1,47 @@
+<tr class="data-activo">
+  <td>
+    <div>
+      <%= operation.fecha_entrada %>
+    </div>
+    <div>
+      <%= operation.status %>
+      <%= operation.posicion %>
+    </div>
+    <div>
+      <span><%= operation.broker %></span>
+      <strong class="nombre-activo"><%= operation.activo %></strong>
+    </div>
+    <div><strong>Precio actual:</strong><span class="price"></span></div>
+    <div>
+      <a
+        href='#'
+        class="btn-red"
+        data-activo="<%= operation.activo %>"
+        data-id="<%= operation.id %>"
+        data-controller="operation"
+        data-action="click->operation#update"
+      >Actualizar</a>
+    </div>
+  </td>
+  <td>
+    <div>
+      Precio de compra: <%= operation.precio_de_compra %>
+    </div>
+    <div>
+      Unidades compradas: <%= operation.unidades_compradas %>
+    </div>
+    <div>
+      Stop loss: <%= operation.stop_loss %>
+    </div>
+    <div>
+      Inversion: <%= operation.inversion %>
+    </div>
+    <div>
+      Riesgo: <%= number_to_percentage operation.riesgo * 100 %>
+    </div>
+  </td>
+  <td><%= operation.comentario %></td>
+  <td><%= link_to 'Show', [@wallet, operation] %></td>
+  <td><%= link_to 'Edit', edit_wallet_operation_path(@wallet, operation) %></td>
+  <td><%= link_to 'Destroy', [@wallet, operation], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+</tr>

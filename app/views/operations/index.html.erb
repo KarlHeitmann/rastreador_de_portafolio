@@ -5,49 +5,15 @@
 <table>
   <thead>
     <tr>
-      <th>Activo</th>
-      <th>Broker</th>
-      <th>Fecha entrada</th>
-      <th>Precio de compra</th>
-      <th>Unidades compradas</th>
-      <th>Stop loss</th>
-      <th>Posicion</th>
-      <th>Status</th>
+      <th>Posición</th>
+      <th>Valores</th>
       <th>Comentario</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @operations.each do |operation| %>
-      <tr class="data-activo">
-        <td>
-          <div class="nombre-activo"><%= operation.activo %></div>
-          <div><strong>Precio actual:</strong><span class="price"></span></div>
-          <div>
-            <a
-              href='#'
-              class="btn-red"
-              data-activo="<%= operation.activo %>"
-              data-id="<%= operation.id %>"
-              data-controller="operation"
-              data-action="click->operation#update"
-            >Actualizar</a>
-          </div>
-        </td>
-        <td><%= operation.broker %></td>
-        <td><%= operation.fecha_entrada %></td>
-        <td><%= operation.precio_de_compra %></td>
-        <td><%= operation.unidades_compradas %></td>
-        <td><%= operation.stop_loss %></td>
-        <td><%= operation.posicion %></td>
-        <td><%= operation.status %></td>
-        <td><%= operation.comentario %></td>
-        <td><%= link_to 'Show', [@wallet, operation] %></td>
-        <td><%= link_to 'Edit', edit_wallet_operation_path(@wallet, operation) %></td>
-        <td><%= link_to 'Destroy', [@wallet, operation], method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
+    <%= render @operations %>
   </tbody>
 </table>
 

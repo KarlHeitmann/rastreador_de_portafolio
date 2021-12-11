@@ -37,7 +37,34 @@ class Operation
     points.order(updated_at: :desc).first
   end
 
+  # @return [Float]
+  def unidades_actuales # TODO: cambiar para que se consideren las compras y ventas de refill y take_profit
+    unidades_compradas
+  end
+
+  # @return [Float]
+  def precio_ponderado # TODO: cambiar para que se consideren las compras y ventas de refill y take_profit
+    precio_de_compra
+  end
+
+  # @return [Float]
+  def inversion_inicial
+    return precio_de_compra * unidades_compradas
+  end
+
+  # @return [Float]
+  def inversion
+    return precio_ponderado * unidades_actuales
+  end
+
+  # @return [Float]
+  def perdidaSl
+    # (precio_de_compra * unidades_compradas) - (stop_loss * unidades_compradas)
+    (precio_ponderado * unidades_actuales) - (stop_loss * unidades_actuales)
+  end
+
   def riesgo
+    perdidaSl / wallet.capitalizado
   end
 
 end
