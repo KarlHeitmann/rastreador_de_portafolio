@@ -1,6 +1,16 @@
 <tr class="data-activo">
   <td>
-    <div class="nombre-activo"><%= operation.activo %></div>
+    <div>
+      <%= operation.fecha_entrada %>
+    </div>
+    <div>
+      <%= operation.status %>
+      <%= operation.posicion %>
+    </div>
+    <div>
+      <span><%= operation.broker %></span>
+      <strong class="nombre-activo"><%= operation.activo %></strong>
+    </div>
     <div><strong>Precio actual:</strong><span class="price"></span></div>
     <div>
       <a
@@ -13,12 +23,9 @@
       >Actualizar</a>
     </div>
   </td>
-  <td><%= operation.broker %></td>
-  <td><%= operation.fecha_entrada %></td>
   <td><%= operation.precio_de_compra %></td>
   <td><%= operation.unidades_compradas %></td>
   <td><%= operation.stop_loss %></td>
-  <td><%= operation.posicion %></td>
   <td><%= operation.status %></td>
   <td><%= operation.comentario %></td>
   <td><%= link_to 'Show', [@wallet, operation] %></td>
