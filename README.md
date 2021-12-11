@@ -54,5 +54,10 @@ También se puede llamar valor computado a la variable dependiente, o en matemá
 
 Hay que diferenciar entre los valores computados y los valores independientes porque si se guardan ambos en la base de datos, podemos entrar en el problema de ¿quien manda? ¿el valor computado o el valor independiente? Claro que el que manda es el valor independiente, pero qué hago si veo que un valor está actualizado. ¿Cuándo debo volver a actualizarlo? Es complicado, en cambio si los valores computados no se guardan en la base de datos, entonces cada vez que los pida los calcularé a partir de las variables independientes, y con eso siempre los valores computados estarán al día. El problema que trae esto es que puede ser muy exigente para la máquina y se ponga lenta la aplicación. Por eso hay que cranear todo esto
 
+# Ejemplo de uso
+
+Hay una tarea rake que genera una wallet y una operación de ejemplo que permitirán al dev ir probando la aplicación. Para ejecutar la tarea rake, corra el siguiente comando
+
+> rake ejemplos:bit
 
 
