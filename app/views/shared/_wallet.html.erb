@@ -10,6 +10,11 @@
       <span id="capitalizado"><%= wallet.capitalizado %></span>
     </p>
 
+    <p>
+      <strong>Valor Actual Activos</strong>
+      <%= wallet.valorActualActivos %>
+    </p>
+
     <%= form_with(url: add_funds_path(wallet.id), method: :get) do |f| %>
       <div class="field is-horizontal">
         <div class="field-label is-normal">
@@ -38,6 +43,10 @@
     <% end %>
 
   </div>
+    <p>
+      <strong>Flotante</strong>
+      <%= wallet.flotanteTotal %>
+    </p>
   <div>
   </div>
   <div>

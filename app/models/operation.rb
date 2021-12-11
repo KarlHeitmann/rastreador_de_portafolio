@@ -27,6 +27,11 @@ class Operation
     take_profits.reduce(0.0) {|sum, tp| sum + tp.unidades * tp.price}
   end
 
+  # @return [Float]
+  def recargas
+    refills.reduce(0.0) {|sum, refill| sum + refill.unidades * refill.price}
+  end
+
   # @return [Point]
   def last_point
     points.order(updated_at: :desc).first
