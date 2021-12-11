@@ -1,14 +1,23 @@
 class OperationsController < ApplicationController
   before_action :set_wallet
   before_action :set_operation, only: %i[ show edit update destroy ]
+  before_action :set_breadcrumbs, except: [:cambiar_stop_loss, :calcular_riesgo_refill]
+
 
   # GET /operations or /operations.json
   def index
+    @breadcrumbs += [
+      {link: wallet_operations_path(@wallet), text: 'Operations', enable: true}
+    ]
     @operations = @wallet.operations
   end
 
   # GET /operations/1 or /operations/1.json
   def show
+    @breadcrumbs += [
+      {link: wallet_operations_path(@wallet), text: 'Operations', enable: true},
+      {link: '#', text: @operation._id, enable: false}
+    ]
   end
 
   # GET /operations/new
@@ -70,5 +79,12 @@ class OperationsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def operation_params
       params.require(:operation).permit(:activo, :broker, :fecha_entrada, :precio_de_compra, :unidades_compradas, :stop_loss, :posicion, :status, :comentario, :wallet_id)
+    end
+
+    def set_breadcrumbs
+      @breadcrumbs = [
+        {link: root_path, text: 'Wallets', enable: true},
+        {link: @wallet, text: @wallet.nombre, enable: true},
+      ]
     end
 end

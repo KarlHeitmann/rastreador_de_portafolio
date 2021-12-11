@@ -3,11 +3,19 @@ class WalletsController < ApplicationController
 
   # GET /wallets or /wallets.json
   def index
+    @breadcrumbs = [
+      {link: '#', text: 'Wallets', enable: false}
+    ]
     @wallets = Wallet.all
   end
 
   # GET /wallets/1 or /wallets/1.json
   def show
+    @breadcrumbs = [
+      {link: root_path, text: 'Wallets', enable: true},
+      # {link: '#', text: @wallet._id, enable: false},
+      {link: '#', text: @wallet.nombre, enable: false},
+    ]
   end
 
   # GET /wallets/new
